@@ -1,30 +1,22 @@
-import pandas as pd
-import csv
 from datetime import datetime
 
-class CSV:
-    CS_FILE = "finance_data.csv"
-    COLUMNS = ["date", "amount", "category", "Description"]
 
-    @classmethod
-    def initialize_csv(cls):
-        try:
-            pd.read_csv(cls.CS_FILE)
-        except FileNotFoundError:
-            df = pd.DataFrame(columns=cls.COLUMNS)
-            df.to_csv(cls.CS_FILE, index=False)
 
-    @classmethod
-    def add_entry(cls, date, amount, category, description):
-        new_entry = {
-            "date": date,
-            "amount": amount,
-            "category": category,
-            "Description": description
-        }
-        with open(cls.CS_FILE, "a", newline="") as csfile:
-            writer = csv.IctWriter(csvfile, fieldnames=cls.COLUMNS)
-            writer.writerow(new_entry)
-        print("Entry added successfully")
+def get_date(prompt, allow_dafault=False):
+    date_str = input(prompt)
+    if allow_dafault and not date_str:
+        return datetime.today().strtime("%d-%m-%Y")
+    
+    try:
+        valid_date = datetime.strptime(date_str, )
 
-CSV.initialize_csv()
+
+
+def get_amount():
+    pass
+
+def get_category():
+    pass
+
+def get_description():
+    pass
